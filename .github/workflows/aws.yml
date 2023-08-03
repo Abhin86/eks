@@ -63,17 +63,17 @@ jobs:
       - deploy-to-test
     steps:
       - name: Request Approval
-        id: Abhin86
+        id: approvers
         run: echo "Please review the deployment and approve or reject it."
 
       - name: Wait for Approval
         if: ${{ needs.deploy-to-test.result == 'success' }}
-        uses: trstringer/manual-approval@v1
+        uses: Abhin86/manual-approval@v1
         with:
           github-token: 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
           approval-message: "The deployment is approved!"
           rejection-message: "The deployment is rejected. Please recheck."
-
+          approvers: Abhin86
  
 
       - name: Deploy to Production
