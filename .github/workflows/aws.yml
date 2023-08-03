@@ -48,8 +48,7 @@ jobs:
         aws-secret-access-key: 22uL8kCl8Zr21Ca+8Dfp9DhS18xyrqLFRP45/XWg
         aws-region: eu-west-2
 
-
-    # Deploy to AWS EKS for prod branch
+ # Deploy to AWS EKS for prod branch
     - name: Deploy to AWS EKS
       run: |
         aws eks update-kubeconfig --region eu-west-2 --name eks_cluster_tuto
