@@ -63,7 +63,7 @@ jobs:
       - deploy-to-test
     steps:
       - name: Request Approval
-        id: approval
+        id: Abhin86
         run: echo "Please review the deployment and approve or reject it."
 
       - name: Wait for Approval
