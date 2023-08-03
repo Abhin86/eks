@@ -1,14 +1,14 @@
 name: Deploying a Node.js Application
 on:
   push:
-    branches: [ prod ]
+    branches: [ Dev ]
   pull_request:
-    branches: [ prod ]
+    branches: [ Dev ]
 
 jobs:
-  deploy-to-prod:
-    name: Deploy to prod
-    runs-on: ubuntu-latest
+  deploy-to-dev:
+    name: Deploy to dev
+    runs-on: self-hosted
 
     steps:
     - name: Checkout
@@ -32,11 +32,11 @@ jobs:
         aws eks update-kubeconfig --region eu-north-1 --name eks_cluster_tuto
         kubectl apply -f vuejs-deployment.yaml
 
-  deploy-to-dr:
-    name: Deploy to dr
-    runs-on: ubuntu-latest
+  deploy-to-test:
+    name: Deploy to test
+    runs-on: self-hosted
 
-    needs: deploy-to-prod # Wait for the deploy-to-test job to complete successfully
+    needs: deploy-to-dev # Wait for the deploy-to-test job to complete successfully
 
     steps:
     - name: Checkout
