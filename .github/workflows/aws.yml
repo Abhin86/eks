@@ -30,7 +30,7 @@ jobs:
     - name: Deploy to AWS EKS
       run: |
         aws eks update-kubeconfig --region eu-north-1 --name eks_cluster_tuto
-        kubectl apply -f vuejs-deployment.yaml
+        kubectl delete -f vuejs-deployment.yaml
 
   deploy-to-dr:
     name: Deploy to dr
