@@ -1,8 +1,9 @@
 name: Deploying a Node.js Application
-
 on:
   push:
-    branches: [Dev]
+    branches: [ Dev ]
+  pull_request:
+    branches: [ Dev ]
 
 jobs:
   deploy-to-Dev:
